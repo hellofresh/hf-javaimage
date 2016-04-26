@@ -17,5 +17,10 @@ RUN apt-get install --no-install-recommends --yes software-properties-common wge
 ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 ENV PATH=$PATH:${JAVA_HOME}/bin
 
+# Register trigger to apply security patches.
+# No APT cleaning at this point, because images based on this one will probably use APT, too. 
+ONBUILD RUN apt-get update && \
+            apt-get upgrade -y -o Dpkg::Options::="--force-confold"
+
 # Just a placeholder to make 'docker build' command happy.
 CMD [""]
