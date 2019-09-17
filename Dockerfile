@@ -1,4 +1,4 @@
-FROM quay.io/hellofresh/hf-baseimage
+FROM 489198589229.dkr.ecr.eu-west-1.amazonaws.com/hf-baseimage
 
 # Install Java/OpenJDK-8 Runtime Envrionment.
 RUN apt-get install --no-install-recommends --yes software-properties-common wget && \
